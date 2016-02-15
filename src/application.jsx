@@ -1,6 +1,9 @@
 import React from 'react'
-// import Home from './home'
+import Home from './home'
 // import { Provider } from 'react-redux'
+// import createStore from './create-store'
+
+// const store = createStore()
 
 export default class Application extends React.Component {
   render () {
@@ -14,7 +17,7 @@ export default class Application extends React.Component {
       //   <Home />
       // </Provider>
 
-      <h1>Hello Reat app!</h1>
+      <Home />
     )
   }
 }
