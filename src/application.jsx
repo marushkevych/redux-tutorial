@@ -1,9 +1,9 @@
 import React from 'react'
 import Home from './home'
-// import { Provider } from 'react-redux'
-// import createStore from './create-store'
+import { Provider } from 'react-redux'
 
-// const store = createStore()
+import store from './store'
+
 
 export default class Application extends React.Component {
   render () {
@@ -13,11 +13,10 @@ export default class Application extends React.Component {
       // Redux store. Of course, to allow Provider to do that, you must give it the store
       // you built previously (via a "store" props).
 
-      // <Provider store={ this.props.store }>
-      //   <Home />
-      // </Provider>
+      <Provider store={ store }>
+        <Home />
+      </Provider>
 
-      <Home />
     )
   }
 }

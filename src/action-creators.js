@@ -1,5 +1,3 @@
-import store from './store'
-
 export function getTime () {
 
   const promise =  new Promise((resolve, reject) => {
