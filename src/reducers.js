@@ -1,6 +1,4 @@
-export function data (state = {time: ''}, action){
-
-  console.log('reducer is called wiht', state, action)
+export function data (state = {}, action){
 
   switch (action.type) {
     case 'GET_TIME_REQUEST':

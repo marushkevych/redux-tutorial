@@ -10,19 +10,17 @@ export default class Home extends React.Component {
 
     store.subscribe(() => {
       if(store.getState().data !== this.state.data){
-        console.log('store updated' )
         this.setState({data: store.getState().data})
       }
     })
   }
 
   onTimeButtonClick () {
-    actionCreators.getTime()
+    store.dispatch(actionCreators.getTime())
   }
 
   render () {
-    var {time, frozen} = this.state.data
-    console.log('Home.render()', time, frozen)
+    var {time, frozen, error} = this.state.data
 
     var attrs = {}
     if (frozen) {
@@ -38,6 +36,7 @@ export default class Home extends React.Component {
           <h3>Provider and connect example</h3>
           <button {...attrs} onClick={() => this.onTimeButtonClick()}>Get time!</button> {message}
           <h4>{time}</h4>
+          <h4>{error}</h4>
       </div>
     )
   }
