@@ -2,6 +2,7 @@ import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as actionCreators from './action-creators'
+import Time from './time'
 
 class Home extends React.Component {
 
@@ -21,7 +22,9 @@ class Home extends React.Component {
   // }
 
   render () {
-    var {time, frozen, error} = this.props.data
+    console.log('Home.render()')
+
+    var {frozen, error} = this.props
 
     var attrs = {}
     if (frozen) {
@@ -36,7 +39,7 @@ class Home extends React.Component {
       <div>
           <h3>Provider and connect example</h3>
           <button {...attrs} onClick={this.props.actions.getTime}>Get time!</button> {message}
-          <h4>{time}</h4>
+          <Time/>
           <h4>{error}</h4>
       </div>
     )
@@ -44,7 +47,10 @@ class Home extends React.Component {
 }
 
 function mapStateToProps (state) {
-  return state
+  return {
+    frozen: state.data.frozen,
+    error: state.data.error
+  }
 }
 
 function mapDispatchToProps(dispatch) {
