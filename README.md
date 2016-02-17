@@ -1,3 +1,3 @@
 # redux-tutorial
 
-This is my take on https://github.com/happypoulp/redux-tutorial
+Working through https://github.com/happypoulp/redux-tutorial
