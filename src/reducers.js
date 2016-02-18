@@ -4,14 +4,16 @@ export function data (state = {}, action){
     case 'GET_TIME_REQUEST':
       return {
         ...state,
-        frozen: true
+        frozen: true,
+        error: ''
       }
 
     case 'GET_TIME_SUCCESS':
       return {
         ...state,
         frozen: false,
-        time: action.result
+        time: action.result,
+        error: ''
       }
 
     case 'GET_TIME_FAILURE':

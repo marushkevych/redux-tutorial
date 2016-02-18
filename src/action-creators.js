@@ -1,4 +1,8 @@
-export function getTime () {
+/**
+ * Async action using promise middleware
+ * see ./promise-middleware.js
+ */
+export function getTimeUsingPromise () {
 
   const promise =  new Promise((resolve, reject) => {
     setTimeout(function(){
@@ -13,4 +17,32 @@ export function getTime () {
     type: 'GET_TIME',
     promise
   }
+}
+
+/**
+ * Async action using thunk middleware
+ * see https://www.npmjs.com/package/redux-thunk
+ */
+export function getTimeUsingThunk () {
+
+  return dispatch => {
+    dispatch({ type: 'GET_TIME_REQUEST' })
+
+    setTimeout(function(){
+      const d = new Date()
+      const ms = ('000' + d.getMilliseconds()).slice(-3)
+
+      dispatch({
+        type: 'GET_TIME_SUCCESS',
+        result: `${d.toString().match(/\d{2}:\d{2}:\d{2}/)[0]}.${ms}`
+      })
+
+      // error
+      // dispatch({
+      //   type: 'GET_TIME_FAILURE',
+      //   error: 'an error!'
+      // })
+    }, 2000)
+  }
+
 }

@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+// this component only re-renders if state.data.time has changed
+
 class Time extends React.Component {
 
   render () {

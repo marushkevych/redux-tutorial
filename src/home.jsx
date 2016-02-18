@@ -38,9 +38,11 @@ class Home extends React.Component {
     return (
       <div>
           <h3>Provider and connect example</h3>
-          <button {...attrs} onClick={this.props.actions.getTime}>Get time!</button> {message}
+          <button {...attrs} onClick={this.props.actions.getTimeUsingPromise}>Get time using promise!</button>
+          <button {...attrs} onClick={this.props.actions.getTimeUsingThunk}>Get time using thunk!</button>
           <Time/>
           <h4>{error}</h4>
+          <h4>{message}</h4>
       </div>
     )
   }
